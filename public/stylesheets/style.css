@@ -6,7 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
-
+#big-container {
+  height:25vh;
+  position: relative;
+}
 #first-container {
   width: 50vw;
   height: 10vh;
@@ -25,6 +28,10 @@ a {
 .menu ul {  
   list-style: none;
 }
+.menu ul details summary {
+  width: 15vw;
+  list-style-position: initial;
+}
 #logout {
   float: right;
   width:20vw;
@@ -35,5 +42,7 @@ a {
   text-align: center;
 }
 #second-container {
-
+  position:absolute;
+  left: 0;
+  top: 10vh;
 }

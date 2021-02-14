@@ -5,8 +5,19 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const mongoose   = require('mongoose');
 
 const app = express();
+
+//mongDB起動
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://ueyama:ueyamamasashi@127.0.0.1:27017/test', { useNewUrlParser: true, useUnifiedTopology: true }, );
+mongoose.connection.on('error', function(err) {
+    console.error('MongoDB connection error: ' + err);
+});
+mongoose.connection.once('open', () =>  {
+  console.log('DB接続中... You can cancel from ctrl + c')
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
